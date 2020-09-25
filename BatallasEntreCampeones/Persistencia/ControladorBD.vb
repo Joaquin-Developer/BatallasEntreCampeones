@@ -11,15 +11,60 @@ Public Class ControladorBD
         connection.ConnectionString = "driver={MySql ODBC 8.0 Unicode Driver};" &
             "server=127.0.0.1;" &
             "port=3306;" &
-            "database=[colocar nombre de BD];" &
+            "database=BatallasEntreCampeones;" &
             "uid=root;" &
             "pwd=;"  ' null
         connection.Open()
         Return connection
     End Function
 
-    Public Function obtenerCampeon(nombre) As Campeon
-        Return Nothing
+    Public Function obtenerTodosLosCampeones() As List(Of Campeon)
+        Dim conexion As Connection = conectar()
+        Dim listaCampeones As New List(Of Campeon)
+        Try
+            Dim rs As Recordset = conexion.Execute("select * from Campeones where nombre='" & nombre & "'")
+
+            While (Not rs.EOF)
+                Dim campeon As New Campeon()
+                campeon.id = DirectCast(rs.Fields("id").Value, Integer)
+                campeon.nombre = TryCast(rs.Fields("nombre").Value, String)
+                campeon.fuerza = DirectCast(rs.Fields("fuerza").Value, Integer)
+                campeon.destreza = DirectCast(rs.Fields("destreza").Value, Integer)
+                campeon.inteligencia = DirectCast(rs.Fields("inteligencia").Value, Integer)
+                campeon.resistencia = DirectCast(rs.Fields("resistencia").Value, Integer)
+                listaCampeones.Add(campeon)
+                rs.MoveNext()
+            End While
+
+        Catch ex As Exception
+            Console.WriteLine(ex.StackTrace)
+        Finally
+            conexion.Close()
+        End Try
+
+        Return listaCampeones
+    End Function
+
+    Public Function obtenerCampeonPorNombre(nombre) As Campeon
+        Dim conexion As Connection = conectar()
+        Dim campeon As New Campeon()
+        Try
+            Dim rs As Recordset = conexion.Execute("select * from Campeones where nombre='" & nombre & "'")
+            campeon.id = DirectCast(rs.Fields("id").Value, Integer)
+            campeon.nombre = TryCast(rs.Fields("nombre").Value, String)
+            campeon.fuerza = DirectCast(rs.Fields("fuerza").Value, Integer)
+            campeon.destreza = DirectCast(rs.Fields("destreza").Value, Integer)
+            campeon.inteligencia = DirectCast(rs.Fields("inteligencia").Value, Integer)
+            campeon.resistencia = DirectCast(rs.Fields("resistencia").Value, Integer)
+
+        Catch ex As Exception
+            Console.WriteLine(ex.StackTrace)
+        Finally
+            conexion.Close()
+        End Try
+
+        Return campeon
+
     End Function
 
     Public Sub agregarCampeon(campeonAlta As Campeon)

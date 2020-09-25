@@ -1,3 +1,6 @@
+drop database if exists BatallasEntreCampeones;
+create database BatallasEntreCampeones;
+use BatallasEntreCampeones;
 -- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: BatallasEntreCampeones
