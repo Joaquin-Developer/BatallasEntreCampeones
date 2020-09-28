@@ -25,18 +25,12 @@ Public Class FormCampeones
         End Try
     End Sub
 
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-        Application.Exit()
-    End Sub
-
     Private Sub llenarCboxNombres()
-        ' consultar a la logica todos los nombres de los campeónes
-        ' que hay en la base de datos
-        ' se deberán llenar en el comboBox con los nombres
         Try
+            'ControladorCampeones.instance.actualizarListaCampeones()
             Dim listaCampeones As New List(Of Campeon)
             listaCampeones = ControladorCampeones.instance.getListaCampeones()
-            cBoxNombresCampeones.Items.Clear()
+            cBoxNombresCampeones.Items.Clear()  'antes de llenar comboBox elimino sus items en caso de haberlos
 
             For Each campeon As Campeon In listaCampeones
                 cBoxNombresCampeones.Items.Add(campeon.nombre)
@@ -49,13 +43,19 @@ Public Class FormCampeones
     End Sub
 
     Private Sub tsMenuItemAltaCampeon_Click(sender As Object, e As EventArgs) Handles tsMenuItemAltaCampeon.Click
-        Dim form As FormAltaCampeon = New FormAltaCampeon()
-        form.ShowDialog()
-    End Sub
-
-    Private Sub tsMenuItemModificarCampeon_Click(sender As Object, e As EventArgs) Handles tsMenuItemModificarCampeon.Click
-        Dim form As FormModificarCampeon = New FormModificarCampeon()
-        form.ShowDialog()
+        Try
+            If IsNothing(cBoxNombresCampeones.SelectedItem) Then
+                Throw New Exception("Debe seleccionar un nombre de campeón.")
+            Else
+                Dim form As FormAltaCampeon = New FormAltaCampeon()
+                'form.ShowDialog()
+                form.Show()
+                Me.Hide()
+            End If
+        Catch ex As Exception
+            Console.WriteLine(ex.StackTrace)
+            MsgBox(ex.Message, vbCritical, "Error")
+        End Try
     End Sub
 
     Public Sub setearGroupBox()
@@ -67,8 +67,14 @@ Public Class FormCampeones
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        ' baja de campeon
-
+        Try
+            ControladorCampeones.instance.eliminarCampeon(cBoxNombresCampeones.SelectedItem.ToString)
+            MsgBox("El campeon " & cBoxNombresCampeones.SelectedItem.ToString & " se eliminó.", vbInformation, "Mensaje.")
+        Catch ex As Exception
+            MsgBox(ex.Message, vbCritical, "Error")
+        Finally
+            llenarCboxNombres()
+        End Try
     End Sub
 
     Private Sub btnModificarCampeon_Click(sender As Object, e As EventArgs) Handles btnModificarCampeon.Click
@@ -77,11 +83,17 @@ Public Class FormCampeones
         Try
             Dim form As FormModificarCampeon = New FormModificarCampeon()
             form.campeonModificar = ControladorCampeones.instance.buscarPorNombre(cBoxNombresCampeones.SelectedItem.ToString)
-            form.ShowDialog()
+            form.Show()
+            Me.Hide()
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical, "Error")
         End Try
 
     End Sub
 
+    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
+        Application.Exit()
+    End Sub
+
 End Class
+

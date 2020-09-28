@@ -24,13 +24,19 @@ Public Class FormModificarCampeon
             campeon.fuerza = nudFuerza.Value
             campeon.resistencia = nudResistencia.Value
             campeon.inteligencia = nudInteligencia.Value
+            campeonModificar = campeon
             ControladorCampeones.instance.modificarCampeon(campeon)
+            MsgBox("Modificado con éxito!", vbInformation, "Mensaje")
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical, "Error")
         End Try
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        ' nota: al crear una nueva instancia de FormCampeones, en el evento load() se actualizará la lista de
+        ' campeones de la logica junto al ComboBox de los nombres.
+        Dim formMain As FormCampeones = New FormCampeones()
+        formMain.Show()
         Me.Hide()
     End Sub
 
