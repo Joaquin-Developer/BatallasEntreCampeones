@@ -1,15 +1,15 @@
 ﻿Public Class FormPrincipal
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub btnCampeones_Click(sender As Object, e As EventArgs) Handles btnCampeones.Click
-        MsgBox("Por ahora no hay funcionalidades :)", vbEmpty, "Mensaje")
+        Dim form As FormCampeones = New FormCampeones()
+        form.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnBatallas_Click(sender As Object, e As EventArgs) Handles btnBatallas.Click
-        MsgBox("Por ahora no hay funcionalidades :)", vbEmpty, "Mensaje")
+        Dim form As FormBatallas = New FormBatallas()
+        form.Show()
+        Me.Hide()
     End Sub
 
 End Class

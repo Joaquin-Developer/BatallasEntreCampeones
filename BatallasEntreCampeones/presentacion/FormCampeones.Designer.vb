@@ -30,16 +30,12 @@ Partial Class FormCampeones
         Me.lblDestreza = New System.Windows.Forms.Label()
         Me.lblInteligencia = New System.Windows.Forms.Label()
         Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnVerDatosCampeon = New System.Windows.Forms.Button()
         Me.cBoxNombresCampeones = New System.Windows.Forms.ComboBox()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.btnCerrar = New System.Windows.Forms.Button()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.MenúToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsMenuItemAltaCampeon = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnAltaCampeon = New System.Windows.Forms.Button()
         Me.GroupBoxBusqueda.SuspendLayout()
         Me.groupBoxDatos.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBoxBusqueda
@@ -47,7 +43,6 @@ Partial Class FormCampeones
         Me.GroupBoxBusqueda.Controls.Add(Me.btnModificarCampeon)
         Me.GroupBoxBusqueda.Controls.Add(Me.groupBoxDatos)
         Me.GroupBoxBusqueda.Controls.Add(Me.btnEliminar)
-        Me.GroupBoxBusqueda.Controls.Add(Me.btnVerDatosCampeon)
         Me.GroupBoxBusqueda.Controls.Add(Me.cBoxNombresCampeones)
         Me.GroupBoxBusqueda.Controls.Add(Me.lblNombre)
         Me.GroupBoxBusqueda.Location = New System.Drawing.Point(12, 42)
@@ -59,11 +54,11 @@ Partial Class FormCampeones
         '
         'btnModificarCampeon
         '
-        Me.btnModificarCampeon.Location = New System.Drawing.Point(306, 25)
+        Me.btnModificarCampeon.Location = New System.Drawing.Point(257, 25)
         Me.btnModificarCampeon.Name = "btnModificarCampeon"
-        Me.btnModificarCampeon.Size = New System.Drawing.Size(90, 23)
+        Me.btnModificarCampeon.Size = New System.Drawing.Size(126, 23)
         Me.btnModificarCampeon.TabIndex = 10
-        Me.btnModificarCampeon.Text = "Modificar"
+        Me.btnModificarCampeon.Text = "Modificar campeòn"
         Me.btnModificarCampeon.UseVisualStyleBackColor = True
         '
         'groupBoxDatos
@@ -124,15 +119,6 @@ Partial Class FormCampeones
         Me.btnEliminar.Text = "Eliminar campeón"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
-        'btnVerDatosCampeon
-        '
-        Me.btnVerDatosCampeon.Location = New System.Drawing.Point(230, 25)
-        Me.btnVerDatosCampeon.Name = "btnVerDatosCampeon"
-        Me.btnVerDatosCampeon.Size = New System.Drawing.Size(70, 23)
-        Me.btnVerDatosCampeon.TabIndex = 2
-        Me.btnVerDatosCampeon.Text = "Ver Datos"
-        Me.btnVerDatosCampeon.UseVisualStyleBackColor = True
-        '
         'cBoxNombresCampeones
         '
         Me.cBoxNombresCampeones.FormattingEnabled = True
@@ -160,63 +146,43 @@ Partial Class FormCampeones
         Me.btnCerrar.Text = "Cerrar"
         Me.btnCerrar.UseVisualStyleBackColor = True
         '
-        'MenuStrip1
+        'btnAltaCampeon
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenúToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(580, 24)
-        Me.MenuStrip1.TabIndex = 3
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'MenúToolStripMenuItem
-        '
-        Me.MenúToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsMenuItemAltaCampeon})
-        Me.MenúToolStripMenuItem.Name = "MenúToolStripMenuItem"
-        Me.MenúToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
-        Me.MenúToolStripMenuItem.Text = "Menú"
-        '
-        'tsMenuItemAltaCampeon
-        '
-        Me.tsMenuItemAltaCampeon.Name = "tsMenuItemAltaCampeon"
-        Me.tsMenuItemAltaCampeon.Size = New System.Drawing.Size(180, 22)
-        Me.tsMenuItemAltaCampeon.Text = "Agregar campeón"
+        Me.btnAltaCampeon.Location = New System.Drawing.Point(12, 219)
+        Me.btnAltaCampeon.Name = "btnAltaCampeon"
+        Me.btnAltaCampeon.Size = New System.Drawing.Size(158, 23)
+        Me.btnAltaCampeon.TabIndex = 4
+        Me.btnAltaCampeon.Text = "Agregar un Campeon"
+        Me.btnAltaCampeon.UseVisualStyleBackColor = True
         '
         'FormCampeones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(580, 272)
+        Me.Controls.Add(Me.btnAltaCampeon)
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.GroupBoxBusqueda)
-        Me.Controls.Add(Me.MenuStrip1)
-        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormCampeones"
         Me.Text = "Campeónes"
         Me.GroupBoxBusqueda.ResumeLayout(False)
         Me.GroupBoxBusqueda.PerformLayout()
         Me.groupBoxDatos.ResumeLayout(False)
         Me.groupBoxDatos.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents GroupBoxBusqueda As GroupBox
-    Friend WithEvents btnVerDatosCampeon As Button
     Friend WithEvents cBoxNombresCampeones As ComboBox
     Friend WithEvents lblNombre As Label
     Friend WithEvents btnCerrar As Button
     Friend WithEvents btnEliminar As Button
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents MenúToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents tsMenuItemAltaCampeon As ToolStripMenuItem
     Friend WithEvents groupBoxDatos As GroupBox
     Friend WithEvents lblFuerza As Label
     Friend WithEvents lblResistencia As Label
     Friend WithEvents lblDestreza As Label
     Friend WithEvents lblInteligencia As Label
     Friend WithEvents btnModificarCampeon As Button
+    Friend WithEvents btnAltaCampeon As Button
 End Class

@@ -80,6 +80,12 @@
     <Compile Include="FormAltaCampeon.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormBatallas.Designer.vb">
+      <DependentUpon>FormBatallas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBatallas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormCampeones.Designer.vb">
       <DependentUpon>FormCampeones.vb</DependentUpon>
     </Compile>

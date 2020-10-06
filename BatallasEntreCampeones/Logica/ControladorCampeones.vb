@@ -34,6 +34,7 @@ Public Class ControladorCampeones
 
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            Throw ex
         End Try
     End Sub
 
@@ -42,6 +43,7 @@ Public Class ControladorCampeones
             actualizarListaCampeones() ' actualizo lista antes de retornarla
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            Throw ex
         End Try
         Return listaCampeones
     End Function
@@ -95,11 +97,17 @@ Public Class ControladorCampeones
 
     Public Sub modificarCampeon(campeon As Campeon)
         Try
+
+            If campeon.nombre.Length = 0 Or IsNothing(campeon.fuerza) Or IsNothing(campeon.destreza) Or IsNothing(campeon.inteligencia) Or IsNothing(campeon.resistencia) Then
+                Throw New Exception("Datos incompletos")
+            End If
+
             Dim controladorBD As New ControladorBD()
             controladorBD.modificarCampeon(campeon)
 
         Catch ex As Exception
-            Console.WriteLine(ex.StackTrace)
+            Console.WriteLine(ex.Message)
+            Throw ex
         End Try
     End Sub
 

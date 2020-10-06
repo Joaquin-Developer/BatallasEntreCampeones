@@ -27,6 +27,7 @@ Public Class FormModificarCampeon
             campeonModificar = campeon
             ControladorCampeones.instance.modificarCampeon(campeon)
             MsgBox("Modificado con éxito!", vbInformation, "Mensaje")
+            Me.Hide()
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical, "Error")
         End Try

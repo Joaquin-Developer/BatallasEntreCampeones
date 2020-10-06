@@ -8,23 +8,6 @@ Public Class FormCampeones
         llenarCboxNombres()
     End Sub
 
-    Private Sub btnVerDatosCampeon_Click(sender As Object, e As EventArgs) Handles btnVerDatosCampeon.Click
-        Try
-            ' obtener de la lógica un objeto de campeón a partir de un nombre
-            Dim campeon As New Campeon
-            campeon = ControladorCampeones.instance.buscarPorNombre(cBoxNombresCampeones.SelectedItem.ToString)
-            groupBoxDatos.Visible = True
-            lblDestreza.Text = "Destreza: " & campeon.destreza.ToString
-            lblFuerza.Text = "Fuerza: " & campeon.fuerza.ToString
-            lblInteligencia.Text = "Inteligencia: " & campeon.inteligencia.ToString
-            lblResistencia.Text = "Resistencia: " & campeon.resistencia.ToString
-
-        Catch ex As Exception
-            setearGroupBox()
-            MsgBox(ex.Message, vbCritical, "Error")
-        End Try
-    End Sub
-
     Private Sub llenarCboxNombres()
         Try
             'ControladorCampeones.instance.actualizarListaCampeones()
@@ -40,22 +23,6 @@ Public Class FormCampeones
             Application.Restart()
         End Try
 
-    End Sub
-
-    Private Sub tsMenuItemAltaCampeon_Click(sender As Object, e As EventArgs) Handles tsMenuItemAltaCampeon.Click
-        Try
-            If IsNothing(cBoxNombresCampeones.SelectedItem) Then
-                Throw New Exception("Debe seleccionar un nombre de campeón.")
-            Else
-                Dim form As FormAltaCampeon = New FormAltaCampeon()
-                'form.ShowDialog()
-                form.Show()
-                Me.Hide()
-            End If
-        Catch ex As Exception
-            Console.WriteLine(ex.StackTrace)
-            MsgBox(ex.Message, vbCritical, "Error")
-        End Try
     End Sub
 
     Public Sub setearGroupBox()
@@ -83,12 +50,35 @@ Public Class FormCampeones
         Try
             Dim form As FormModificarCampeon = New FormModificarCampeon()
             form.campeonModificar = ControladorCampeones.instance.buscarPorNombre(cBoxNombresCampeones.SelectedItem.ToString)
-            form.Show()
+            form.ShowDialog()
             Me.Hide()
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical, "Error")
         End Try
 
+    End Sub
+
+    Private Sub btnAltaCampeon_Click(sender As Object, e As EventArgs) Handles btnAltaCampeon.Click
+        Dim form As FormAltaCampeon = New FormAltaCampeon()
+        form.ShowDialog()
+        'form.Show()
+    End Sub
+
+    Private Sub cBoxNombresCampeones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cBoxNombresCampeones.SelectedIndexChanged
+        Try
+            ' obtener de la lógica un objeto de campeón a partir de un nombre
+            Dim campeon As New Campeon
+            campeon = ControladorCampeones.instance.buscarPorNombre(cBoxNombresCampeones.SelectedItem.ToString)
+            groupBoxDatos.Visible = True
+            lblDestreza.Text = "Destreza: " & campeon.destreza.ToString
+            lblFuerza.Text = "Fuerza: " & campeon.fuerza.ToString
+            lblInteligencia.Text = "Inteligencia: " & campeon.inteligencia.ToString
+            lblResistencia.Text = "Resistencia: " & campeon.resistencia.ToString
+
+        Catch ex As Exception
+            setearGroupBox()
+            MsgBox(ex.Message, vbCritical, "Error")
+        End Try
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
