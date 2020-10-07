@@ -4,7 +4,7 @@ Imports Persistencia
 Public Class ControladorCampeones
     ' <>
     Public Shared Property instance As New ControladorCampeones
-    Private Property listaCampeones As New List(Of Campeon)
+    Private controladorBD As New ControladorBD()
 
     Private Sub New()
     End Sub
@@ -12,7 +12,6 @@ Public Class ControladorCampeones
     Public Function buscarPorNombre(nombre As String) As Campeon
         ' llamar a la Persistencia y consultar datos de campeón a partir del nombre
         If nombre.Length = 0 Then Throw New Exception("Debe ingresar un nombre")
-        actualizarListaCampeones()
         Dim campeon As New Campeon()
 
         For Each camp As Campeon In listaCampeones
@@ -27,8 +26,6 @@ Public Class ControladorCampeones
     Public Sub actualizarListaCampeones()
         ' procedimiento que actualiza la lista local de Campeones
         Try
-            Dim controladorBD As New ControladorBD()
-            listaCampeones.Clear()
             listaCampeones = controladorBD.obtenerTodosLosCampeones()
             'If listaCampeones.Count = 0 Then Throw New Exception("No se encontraron Campeones en la base de datos.")
 
@@ -37,16 +34,6 @@ Public Class ControladorCampeones
             Throw ex
         End Try
     End Sub
-
-    Public Function getListaCampeones() As List(Of Campeon)
-        Try
-            actualizarListaCampeones() ' actualizo lista antes de retornarla
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-            Throw ex
-        End Try
-        Return listaCampeones
-    End Function
 
     Public Sub agregarCampeon(campeon As Campeon)
         Try
@@ -110,5 +97,10 @@ Public Class ControladorCampeones
             Throw ex
         End Try
     End Sub
+
+    Public Function ObtenerTodosLosCampeones() As List Of(Campeon)
+        Return controladorBD.obtenerTodosLosCampeones()
+    End Function
+
 
 End Class
