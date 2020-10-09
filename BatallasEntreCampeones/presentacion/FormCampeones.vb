@@ -10,9 +10,8 @@ Public Class FormCampeones
 
     Private Sub llenarCboxNombres()
         Try
-            'ControladorCampeones.instance.actualizarListaCampeones()
-            Dim listaCampeones As New List(Of Campeon)
-            listaCampeones = ControladorCampeones.instance.getListaCampeones()
+            Dim listaCampeones As List(Of Campeon) = ControladorCampeones.instance.ObtenerTodosLosCampeones()
+
             cBoxNombresCampeones.Items.Clear()  'antes de llenar comboBox elimino sus items en caso de haberlos
 
             For Each campeon As Campeon In listaCampeones

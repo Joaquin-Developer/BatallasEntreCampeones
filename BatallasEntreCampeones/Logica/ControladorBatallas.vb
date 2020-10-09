@@ -4,12 +4,15 @@ Public Class ControladorBatallas
 
     Public Shared Property instance As New ControladorBatallas
 
+    Private Sub New()
+    End Sub
+
     Public Function SimularBatallaCompleta(combatienteA As Combatiente, combatienteB As Combatiente) As Batalla
         Return New Batalla(combatienteA, combatienteB)
     End Function
 
     Public Function SimularRondaDeConbate(combatienteA As Combatiente, combatienteB As Combatiente) As Ronda
-        Dim ronda As New Ronda()
+        Dim ronda As New Datos.Ronda()
         Atacar(combatienteA, combatienteB, ronda)
         Atacar(combatienteB, combatienteA, ronda)
 

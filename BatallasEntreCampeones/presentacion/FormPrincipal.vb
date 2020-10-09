@@ -1,13 +1,11 @@
 ﻿Public Class FormPrincipal
 
-    Private Sub btnCampeones_Click(sender As Object, e As EventArgs) Handles btnCampeones.Click
-        Dim form As FormCampeones = New FormCampeones()
-        form.ShowDialog()
-        'Me.Hide()
+    Private Sub FormPrincipal_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
     End Sub
 
-    Private Sub btnBatallas_Click(sender As Object, e As EventArgs) Handles btnBatallas.Click
-        Dim form As FormBatallas = New FormBatallas()
+    Private Sub btnCampeones_Click(sender As Object, e As EventArgs) Handles btnCampeones.Click
+        Dim form As FormCampeones = New FormCampeones()
         form.ShowDialog()
         'Me.Hide()
     End Sub
@@ -17,4 +15,9 @@
         form.ShowDialog()
     End Sub
 
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        If MsgBox("¿Estas seguro que deseas salir?", vbQuestion + vbYesNo, "Confirmar salida") = MsgBoxResult.Yes Then
+            Application.Exit()
+        End If
+    End Sub
 End Class

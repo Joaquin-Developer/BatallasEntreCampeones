@@ -80,12 +80,6 @@
     <Compile Include="FormAltaCampeon.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBatallas.Designer.vb">
-      <DependentUpon>FormBatallas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormBatallas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormCampeones.Designer.vb">
       <DependentUpon>FormCampeones.vb</DependentUpon>
     </Compile>
@@ -171,6 +165,12 @@
       <Project>{7a455aed-b8ef-43bd-9d68-a2f18a4b0830}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoFormPrincipal.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoMain.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
