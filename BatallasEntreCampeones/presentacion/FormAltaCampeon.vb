@@ -12,6 +12,7 @@ Public Class FormAltaCampeon
             campeon.resistencia = nudResistencia.Value
             campeon.inteligencia = nudInteligencia.Value
             ControladorCampeones.instance.agregarCampeon(campeon)
+            MsgBox("¡El campeon " & campeon.nombre & " se agrego con exito!", vbInformation, "Mensaje")
             setearForm()
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical, "Error al agregar un campeon al sistema")
@@ -20,6 +21,9 @@ Public Class FormAltaCampeon
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
         Me.Hide()
+        Dim form As New FormCampeones()
+        form.ShowDialog()
+
     End Sub
 
     Public Sub setearForm()

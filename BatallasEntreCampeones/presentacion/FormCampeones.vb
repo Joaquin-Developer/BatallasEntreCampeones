@@ -3,12 +3,23 @@ Imports Datos
 
 Public Class FormCampeones
 
+    'Public Shared Property instance As New FormCampeones
+
+    Public Sub New()
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+
     Private Sub FormCampeones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         groupBoxDatos.Visible = False
         llenarCboxNombres()
     End Sub
 
-    Private Sub llenarCboxNombres()
+    Friend Sub llenarCboxNombres()
         Try
             Dim listaCampeones As List(Of Campeon) = ControladorCampeones.instance.ObtenerTodosLosCampeones()
 
@@ -58,9 +69,10 @@ Public Class FormCampeones
     End Sub
 
     Private Sub btnAltaCampeon_Click(sender As Object, e As EventArgs) Handles btnAltaCampeon.Click
+
+        Me.Hide()
         Dim form As FormAltaCampeon = New FormAltaCampeon()
         form.ShowDialog()
-        'form.Show()
     End Sub
 
     Private Sub cBoxNombresCampeones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cBoxNombresCampeones.SelectedIndexChanged
@@ -81,7 +93,8 @@ Public Class FormCampeones
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-        Application.Exit()
+
+        Me.Hide()
     End Sub
 
 End Class

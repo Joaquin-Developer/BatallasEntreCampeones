@@ -85,12 +85,10 @@ Public Class ControladorBD
 
     Public Sub modificarCampeon(campeon As Campeon)
         Dim conexion As Connection = conectar()
-
         Try
             Dim rs As Recordset
-            rs = conexion.Execute("UPDATE Campeones SET nombre='" & campeon.nombre & "', fuerza=" & campeon.fuerza & "," &
-                                  "destreza=" & campeon.destreza & ",inteligencia=" & campeon.inteligencia &
-                                  ", resistencia=" & campeon.resistencia & " WHERE id=" & campeon.id)
+            rs = conexion.Execute("UPDATE Campeones SET nombre='" & campeon.nombre & "', fuerza=" & campeon.fuerza.ToString & ", destreza=" & campeon.destreza.ToString & ", inteligencia=" & campeon.inteligencia.ToString &
+                                  "where id=" & campeon.id.ToString)
 
         Catch ex As Exception
             Console.WriteLine(ex.StackTrace)

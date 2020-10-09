@@ -36,8 +36,7 @@ Public Class FormModificarCampeon
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         ' nota: al crear una nueva instancia de FormCampeones, en el evento load() se actualizará la lista de
         ' campeones de la logica junto al ComboBox de los nombres.
-        Dim formMain As FormCampeones = New FormCampeones()
-        formMain.Show()
+        'FormCampeones.instance.setearGroupBox()
         Me.Hide()
     End Sub
 

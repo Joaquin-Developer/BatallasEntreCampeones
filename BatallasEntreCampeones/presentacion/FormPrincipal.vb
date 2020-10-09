@@ -12,12 +12,17 @@ Public Class FormPrincipal
 
     Private Sub FormPrincipal_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None  ' quito borde y barra de titulo del Form
+        btnSalir_BarraTitulo.BackColor = Color.FromArgb(175, 5, 23)
     End Sub
 
     Private Sub btnCampeones_Click(sender As Object, e As EventArgs) Handles btnCampeones.Click
+
+        'FormCampeones.instance.ShowDialog()
+
+
         Dim form As FormCampeones = New FormCampeones()
         form.ShowDialog()
-        'Me.Hide()
+        Me.Hide()
     End Sub
 
     Private Sub btnNuevaBatalla_Click(sender As Object, e As EventArgs) Handles btnNuevaBatalla.Click
@@ -25,14 +30,17 @@ Public Class FormPrincipal
         form.ShowDialog()
     End Sub
 
-    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        If MsgBox("¿Estas seguro que deseas salir?", vbQuestion + vbYesNo, "Confirmar salida") = MsgBoxResult.Yes Then
-            Application.Exit()
-        End If
-    End Sub
-
     Private Sub btnSalir_BarraTitulo_Click(sender As Object, e As EventArgs) Handles btnSalir_BarraTitulo.Click
         Application.Exit()
+    End Sub
+
+    Private Sub btnSalir_BarraTitulo_MouseEnter(sender As Object, e As EventArgs) Handles btnSalir_BarraTitulo.MouseEnter
+        btnSalir_BarraTitulo.BackColor = Color.FromArgb(249, 3, 49)
+
+    End Sub
+
+    Private Sub btnSalir_BarraTitulo_MouseLeave(sender As Object, e As EventArgs) Handles btnSalir_BarraTitulo.MouseLeave
+        btnSalir_BarraTitulo.BackColor = Color.FromArgb(175, 5, 23)
     End Sub
 
     Private Sub pnlBarraTitulo_MouseMove(sender As Object, e As MouseEventArgs) Handles pnlBarraTitulo.MouseMove
