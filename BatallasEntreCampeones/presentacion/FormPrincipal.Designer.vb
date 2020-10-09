@@ -25,14 +25,18 @@ Partial Class FormPrincipal
         Me.btnCampeones = New System.Windows.Forms.Button()
         Me.btnNuevaBatalla = New System.Windows.Forms.Button()
         Me.pnlFondo = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.gBoxABM = New System.Windows.Forms.GroupBox()
-        Me.gBoxJugarBatalla = New System.Windows.Forms.GroupBox()
         Me.btnSalir = New System.Windows.Forms.Button()
+        Me.gBoxJugarBatalla = New System.Windows.Forms.GroupBox()
+        Me.gBoxABM = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pnlBarraTitulo = New System.Windows.Forms.Panel()
+        Me.lblTituloForm = New System.Windows.Forms.Label()
+        Me.btnSalir_BarraTitulo = New System.Windows.Forms.Button()
         Me.pnlFondo.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gBoxABM.SuspendLayout()
         Me.gBoxJugarBatalla.SuspendLayout()
+        Me.gBoxABM.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlBarraTitulo.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnCampeones
@@ -58,6 +62,7 @@ Partial Class FormPrincipal
         'pnlFondo
         '
         Me.pnlFondo.BackColor = System.Drawing.SystemColors.MenuText
+        Me.pnlFondo.Controls.Add(Me.pnlBarraTitulo)
         Me.pnlFondo.Controls.Add(Me.btnSalir)
         Me.pnlFondo.Controls.Add(Me.gBoxJugarBatalla)
         Me.pnlFondo.Controls.Add(Me.gBoxABM)
@@ -67,45 +72,79 @@ Partial Class FormPrincipal
         Me.pnlFondo.Size = New System.Drawing.Size(554, 377)
         Me.pnlFondo.TabIndex = 3
         '
-        'PictureBox1
+        'btnSalir
         '
-        Me.PictureBox1.Image = Global.presentacion.My.Resources.Resources.logoMain
-        Me.PictureBox1.Location = New System.Drawing.Point(90, 19)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(320, 184)
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
-        '
-        'gBoxABM
-        '
-        Me.gBoxABM.Controls.Add(Me.btnCampeones)
-        Me.gBoxABM.ForeColor = System.Drawing.Color.White
-        Me.gBoxABM.Location = New System.Drawing.Point(33, 209)
-        Me.gBoxABM.Name = "gBoxABM"
-        Me.gBoxABM.Size = New System.Drawing.Size(200, 100)
-        Me.gBoxABM.TabIndex = 4
-        Me.gBoxABM.TabStop = False
-        Me.gBoxABM.Text = "Alta, Baja y Modificaciòn de Datos"
+        Me.btnSalir.Location = New System.Drawing.Point(455, 351)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(80, 26)
+        Me.btnSalir.TabIndex = 6
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'gBoxJugarBatalla
         '
         Me.gBoxJugarBatalla.Controls.Add(Me.btnNuevaBatalla)
         Me.gBoxJugarBatalla.ForeColor = System.Drawing.Color.White
-        Me.gBoxJugarBatalla.Location = New System.Drawing.Point(268, 209)
+        Me.gBoxJugarBatalla.Location = New System.Drawing.Point(270, 222)
         Me.gBoxJugarBatalla.Name = "gBoxJugarBatalla"
         Me.gBoxJugarBatalla.Size = New System.Drawing.Size(200, 100)
         Me.gBoxJugarBatalla.TabIndex = 5
         Me.gBoxJugarBatalla.TabStop = False
         Me.gBoxJugarBatalla.Text = "Jugar una Batalla"
         '
-        'btnSalir
+        'gBoxABM
         '
-        Me.btnSalir.Location = New System.Drawing.Point(453, 338)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(80, 26)
-        Me.btnSalir.TabIndex = 6
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.UseVisualStyleBackColor = True
+        Me.gBoxABM.Controls.Add(Me.btnCampeones)
+        Me.gBoxABM.ForeColor = System.Drawing.Color.White
+        Me.gBoxABM.Location = New System.Drawing.Point(35, 222)
+        Me.gBoxABM.Name = "gBoxABM"
+        Me.gBoxABM.Size = New System.Drawing.Size(200, 100)
+        Me.gBoxABM.TabIndex = 4
+        Me.gBoxABM.TabStop = False
+        Me.gBoxABM.Text = "Alta, Baja y Modificaciòn de Datos"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.presentacion.My.Resources.Resources.logoMain
+        Me.PictureBox1.Location = New System.Drawing.Point(92, 32)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(320, 184)
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
+        'pnlBarraTitulo
+        '
+        Me.pnlBarraTitulo.BackColor = System.Drawing.Color.Maroon
+        Me.pnlBarraTitulo.Controls.Add(Me.btnSalir_BarraTitulo)
+        Me.pnlBarraTitulo.Controls.Add(Me.lblTituloForm)
+        Me.pnlBarraTitulo.Location = New System.Drawing.Point(3, 3)
+        Me.pnlBarraTitulo.Name = "pnlBarraTitulo"
+        Me.pnlBarraTitulo.Size = New System.Drawing.Size(551, 23)
+        Me.pnlBarraTitulo.TabIndex = 7
+        '
+        'lblTituloForm
+        '
+        Me.lblTituloForm.AutoSize = True
+        Me.lblTituloForm.ForeColor = System.Drawing.Color.White
+        Me.lblTituloForm.Location = New System.Drawing.Point(3, 8)
+        Me.lblTituloForm.Name = "lblTituloForm"
+        Me.lblTituloForm.Size = New System.Drawing.Size(209, 13)
+        Me.lblTituloForm.TabIndex = 0
+        Me.lblTituloForm.Text = "Batallas entre Campeónes - Menú Principal"
+        '
+        'btnSalir_BarraTitulo
+        '
+        Me.btnSalir_BarraTitulo.BackColor = System.Drawing.Color.Red
+        Me.btnSalir_BarraTitulo.FlatAppearance.BorderSize = 0
+        Me.btnSalir_BarraTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir_BarraTitulo.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir_BarraTitulo.ForeColor = System.Drawing.Color.White
+        Me.btnSalir_BarraTitulo.Location = New System.Drawing.Point(528, -3)
+        Me.btnSalir_BarraTitulo.Name = "btnSalir_BarraTitulo"
+        Me.btnSalir_BarraTitulo.Size = New System.Drawing.Size(20, 26)
+        Me.btnSalir_BarraTitulo.TabIndex = 8
+        Me.btnSalir_BarraTitulo.Text = "x"
+        Me.btnSalir_BarraTitulo.UseVisualStyleBackColor = False
         '
         'FormPrincipal
         '
@@ -116,9 +155,11 @@ Partial Class FormPrincipal
         Me.Name = "FormPrincipal"
         Me.Text = "Batallas entre Campeónes - Menú Principal"
         Me.pnlFondo.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gBoxABM.ResumeLayout(False)
         Me.gBoxJugarBatalla.ResumeLayout(False)
+        Me.gBoxABM.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlBarraTitulo.ResumeLayout(False)
+        Me.pnlBarraTitulo.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -130,4 +171,7 @@ Partial Class FormPrincipal
     Friend WithEvents gBoxABM As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnSalir As Button
+    Friend WithEvents pnlBarraTitulo As Panel
+    Friend WithEvents lblTituloForm As Label
+    Friend WithEvents btnSalir_BarraTitulo As Button
 End Class
