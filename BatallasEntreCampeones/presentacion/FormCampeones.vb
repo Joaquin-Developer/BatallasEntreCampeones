@@ -93,8 +93,9 @@ Public Class FormCampeones
     End Sub
 
     Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-
+        FormPrincipal.Show()
         Me.Hide()
+
     End Sub
 
 End Class
