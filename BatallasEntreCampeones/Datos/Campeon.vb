@@ -20,8 +20,8 @@
         Me.resistencia = resistencia
     End Sub
 
-
-
-
+    Public Overrides Function ToString() As String
+        Return Me.nombre
+    End Function
 
 End Class

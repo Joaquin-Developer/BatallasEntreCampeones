@@ -105,6 +105,12 @@
       <DependentUpon>FormPrincipal.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormSimulacionBatallas.Designer.vb">
+      <DependentUpon>FormSimulacionBatallas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSimulacionBatallas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSimulacionBatallas.resx">
+      <DependentUpon>FormSimulacionBatallas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

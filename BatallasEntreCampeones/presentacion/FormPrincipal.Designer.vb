@@ -24,6 +24,7 @@ Partial Class FormPrincipal
     Private Sub InitializeComponent()
         Me.btnCampeones = New System.Windows.Forms.Button()
         Me.btnBatallas = New System.Windows.Forms.Button()
+        Me.btnNuevaBatalla = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnCampeones
@@ -44,14 +45,24 @@ Partial Class FormPrincipal
         Me.btnBatallas.Text = "Batallas"
         Me.btnBatallas.UseVisualStyleBackColor = True
         '
-        'Form1
+        'btnNuevaBatalla
+        '
+        Me.btnNuevaBatalla.Location = New System.Drawing.Point(414, 29)
+        Me.btnNuevaBatalla.Name = "btnNuevaBatalla"
+        Me.btnNuevaBatalla.Size = New System.Drawing.Size(120, 50)
+        Me.btnNuevaBatalla.TabIndex = 2
+        Me.btnNuevaBatalla.Text = "BATALLAS"
+        Me.btnNuevaBatalla.UseVisualStyleBackColor = True
+        '
+        'FormPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(796, 447)
+        Me.Controls.Add(Me.btnNuevaBatalla)
         Me.Controls.Add(Me.btnBatallas)
         Me.Controls.Add(Me.btnCampeones)
-        Me.Name = "Form1"
+        Me.Name = "FormPrincipal"
         Me.Text = "Batallas entre Campeónes - Menú Principal"
         Me.ResumeLayout(False)
 
@@ -59,4 +70,5 @@ Partial Class FormPrincipal
 
     Friend WithEvents btnCampeones As Button
     Friend WithEvents btnBatallas As Button
+    Friend WithEvents btnNuevaBatalla As Button
 End Class
